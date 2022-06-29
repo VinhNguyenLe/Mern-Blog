@@ -1,0 +1,37 @@
+.errorPage {
+    position: fixed;
+    inset: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & h1 {
+        margin-bottom: 13px;
+        color: lightcoral;
+        font-size: 100px;
+        font-weight: 600;
+        line-height: 0.9;
+        text-transform: uppercase;
+        font-family: "Josefin Sans", sans-serif;
+    }
+
+    & h3 {
+        font-size: 24px;
+        font-family: "Lora", serif;
+    }
+
+    & a {
+        margin-top: 16px;
+        font-size: 20px;
+        font-family: "Lora", serif;
+        text-decoration: none;
+        color: #888;
+        font-style: italic;
+
+        &:hover {
+            color: lightcoral;
+        }
+    }
+}
