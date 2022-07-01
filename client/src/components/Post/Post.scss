@@ -65,7 +65,7 @@
 }
 
 .postDesc {
-    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    font-family: "Varela Round", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
@@ -76,4 +76,10 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+
+@media (max-width: 480px) {
+    .post {
+        margin-inline: unset;
+    }
 }

@@ -1,22 +1,17 @@
 import Post from "../Post/Post"
 import "./Posts.scss"
 
-const imgLinks = [
-    "https://c4.wallpaperflare.com/wallpaper/236/720/984/cat-mammal-fluffy-cat-blue-eyes-wallpaper-preview.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754109.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754118.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754125.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754134.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754140.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754151.jpg",
-    "https://wallpapercave.com/dwp1x/wp3754158.jpg",
-]
-function Posts() {
+function Posts({ posts, search }) {
+    const searchName = search.slice(search.indexOf("=") + 1)
+
     return (
         <div className="posts">
+            <h1 className="postsTitle">
+                All posts{searchName && <span> of: {searchName}</span>}
+            </h1>
             <div className="postsWrapper">
-                {imgLinks.map((imgLink) => (
-                    <Post img={imgLink} />
+                {posts.map((post, index) => (
+                    <Post post={post} key={index} />
                 ))}
             </div>
         </div>

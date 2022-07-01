@@ -18,8 +18,12 @@
     &Lg {
         position: absolute;
         top: 20%;
-        font-size: 100px;
+        font-size: 64px;
         font-style: italic;
+        text-align: center;
+        line-height: 80px;
+        margin-top: 30px;
+        max-width: 60%;
     }
 }
 
@@ -28,4 +32,29 @@
     height: 450px;
     margin-top: 80px;
     object-fit: cover;
+}
+
+@media (max-width: 480px) {
+    .header {
+        margin-top: unset;
+    }
+
+    .headerImg {
+        margin-top: 20px;
+    }
+
+    .headerTitle {
+        &Sm {
+            top: 80px;
+            font-size: 20px;
+        }
+
+        &Lg {
+            top: 100px;
+            font-size: 36px;
+            color: black;
+            max-width: 100%;
+            font-weight: 500;
+        }
+    }
 }

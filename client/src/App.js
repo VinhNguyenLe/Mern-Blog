@@ -1,3 +1,11 @@
+import { useContext } from "react"
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom"
+
 import Topbar from "./components/Topbar/Topbar"
 import Home from "./pages/Home/Home"
 import Login from "./pages/Login/Login"
@@ -7,48 +15,33 @@ import Single from "./pages/Single/Single"
 import Write from "./pages/Write/Write"
 import PageNotExits from "./pages/PageNotExits/PageNotExits"
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate,
-} from "react-router-dom"
-
+import { Context } from "./context/Context"
+import About from "./pages/About/About"
 function App() {
-    const currentUser = false
+    const { user } = useContext(Context)
     return (
         <Router>
             <ScrollToTop>
-                <Topbar user={currentUser} />
+                <Topbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/posts" element={<Home />} />
+                    <Route path="/about" element={<About />} />
                     <Route
                         path="/login"
-                        element={
-                            currentUser ? (
-                                <Navigate to="/" replace />
-                            ) : (
-                                <Login />
-                            )
-                        }
+                        element={user ? <Navigate to="/" replace /> : <Login />}
                     />
 
                     <Route
                         path="/register"
                         element={
-                            currentUser ? (
-                                <Navigate to="/" replace />
-                            ) : (
-                                <Register />
-                            )
+                            user ? <Navigate to="/" replace /> : <Register />
                         }
                     />
                     <Route
                         path="/settings"
                         element={
-                            !currentUser ? (
+                            !user ? (
                                 <Navigate to="/login" replace />
                             ) : (
                                 <Settings />
@@ -58,11 +51,7 @@ function App() {
                     <Route
                         path="/write"
                         element={
-                            !currentUser ? (
-                                <Navigate to="/login" replace />
-                            ) : (
-                                <Write />
-                            )
+                            !user ? <Navigate to="/login" replace /> : <Write />
                         }
                     />
                     <Route path="/post/:postId" element={<Single />} />

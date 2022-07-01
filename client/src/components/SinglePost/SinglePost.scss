@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap");
+
 .singlePost {
     flex: 9;
 }
@@ -5,6 +7,7 @@
 .singlePostWrapper {
     padding: 40px;
     padding-right: 0;
+    position: relative;
 }
 
 .singlePostImg {
@@ -41,7 +44,7 @@
 }
 
 .singlePostInfo {
-    margin-bottom: 20px;
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
     font-size: 16px;
@@ -51,6 +54,12 @@
 
 .singlePostAuthor {
     margin-left: 5px;
+
+    & a {
+        text-decoration: none;
+        font: inherit;
+        color: inherit;
+    }
 }
 
 .singlePostDate {
@@ -59,12 +68,97 @@
 
 .singlePostDesc {
     color: #666;
-    font-size: 18px;
+    font-size: 19px;
     line-height: 25px;
+    font-family: "Roboto", serif;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.2px;
 
     &::first-letter {
         margin-left: 20px;
-        font-size: 30px;
-        font-weight: 600;
+        // font-size: 30px;
+        // font-weight: 600;
+    }
+}
+
+.singlePostTitleInput {
+    margin-block: 30px;
+    font-style: italic;
+    width: 70vw;
+    text-align: center;
+    font-family: "Lora", serif;
+    font-size: 28px;
+    font-style: italic;
+    padding-block: 3px;
+    border: none;
+    border-bottom: 1px solid #666;
+    outline: none;
+
+    &:focus {
+        border-color: lightcoral;
+    }
+}
+
+.singPostDescInput {
+    color: #666;
+    font-size: 20px;
+    line-height: 25px;
+    font-family: "Varela Round", sans-serif;
+    border: 1px solid #666;
+    outline: none;
+    padding: 10px 12px;
+    max-width: 70vw;
+    width: 100%;
+    letter-spacing: 0.2px;
+    min-height: 100px;
+    &:focus {
+        border-color: lightcoral;
+    }
+}
+
+.singlePostButtonWrap {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.singlePostButton {
+    margin-top: 30px;
+    color: #fff;
+    background-color: lightcoral;
+    padding: 10px 26px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: "Lora", serif;
+    font-size: 16px;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        background-color: rgb(234, 105, 105);
+    }
+}
+
+@media (max-width: 480px) {
+    .singlePostWrapper {
+        padding-inline: 12px;
+    }
+
+    .singlePostTitle {
+        margin-top: 10px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .singlePostEdit {
+        position: absolute;
+        right: 0;
+        bottom: -25px;
+    }
+
+    .singlePostDesc {
+        font-size: 17px;
+        text-align: justify;
     }
 }

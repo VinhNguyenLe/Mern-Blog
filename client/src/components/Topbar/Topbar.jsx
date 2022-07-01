@@ -1,6 +1,15 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { Context } from "../../context/Context"
 import "./Topbar.scss"
-function Topbar({ user }) {
+function Topbar() {
+    const { user, dispatch } = useContext(Context)
+    const PF = "http://eblog-api-mern.herokuapp.com/images/"
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" })
+    }
+
     return (
         <div className="top">
             <div className="topLeft">
@@ -17,13 +26,17 @@ function Topbar({ user }) {
                     <li className="topListItem">
                         <Link to="/about">About</Link>
                     </li>
-                    <li className="topListItem">
+                    <li className="topListItem customMQ">
                         <Link to="/contact">Contact</Link>
                     </li>
                     <li className="topListItem">
                         <Link to="/write">Write</Link>
                     </li>
-                    {user && <li className="topListItem">LOGOUT</li>}
+                    {user && (
+                        <li className="topListItem" onClick={handleLogout}>
+                            LOGOUT
+                        </li>
+                    )}
                 </ul>
             </div>
             <div className="topRight">
@@ -31,7 +44,7 @@ function Topbar({ user }) {
                     <Link className="link" to="/settings">
                         <img
                             className="topImg"
-                            src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            src={PF + user.profilePic}
                             alt=""
                         />
                     </Link>
@@ -49,7 +62,6 @@ function Topbar({ user }) {
                         </li>
                     </ul>
                 )}
-                <i className="topSearchIcon fas fa-search"></i>
             </div>
         </div>
     )
