@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { Context } from "../../context/Context"
+import { PFs } from "../../utils/PFs"
 import "./Topbar.scss"
 function Topbar() {
     const { user, dispatch } = useContext(Context)
-    const PF = "http://eblog-api-mern.herokuapp.com/images/"
+    const PF = PFs
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })

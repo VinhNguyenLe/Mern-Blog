@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import "./About.scss"
+import request from "../../utils/request"
 
+import "./About.scss"
 function About() {
     const [cats, setCats] = useState()
 
     useEffect(() => {
         const getCats = async () => {
-            const res = await axios.get("/categories")
+            const res = await request.get("/categories")
             setCats(res.data)
         }
         getCats()

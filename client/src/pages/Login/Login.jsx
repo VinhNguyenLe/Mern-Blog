@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import request from "../../utils/request"
 
 import { Context } from "../../context/Context"
 import "./Login.scss"
@@ -16,7 +17,7 @@ function Login() {
         e.preventDefault()
         dispatch({ type: "LOGIN_START" })
         try {
-            const res = await axios.post("/auth/login", {
+            const res = await request.post("/auth/login", {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             })

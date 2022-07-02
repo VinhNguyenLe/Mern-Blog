@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
+import { PFs } from "../../utils/PFs"
 import "./Post.scss"
 
 function Post({ post }) {
-    const PF = "http://eblog-api-mern.herokuapp.com/images/"
+    const PF = PFs
 
     return (
         <div className="post">

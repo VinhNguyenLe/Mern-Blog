@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react"
-import axios from "axios"
+// import axios from "axios"
 import { useLocation } from "react-router-dom"
+import request from "../../utils/request"
 
 import Header from "../../components/Header/Header"
 import Posts from "../../components/Posts/Posts"
@@ -13,7 +14,7 @@ function Home() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await axios.get("/posts" + search)
+            const res = await request.get("/posts" + search)
             setPosts(res.data)
         }
         fetchPosts()

@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express()
+const cors = require("cors")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 const authRoute = require("./routes/auth")
@@ -16,6 +17,8 @@ const DATABASE_URL = process.env.MONGO_URL
 
 app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "./images")))
+
+app.use(cors())
 
 mongoose
     .connect(DATABASE_URL)

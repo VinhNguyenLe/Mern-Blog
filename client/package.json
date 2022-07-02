@@ -38,6 +38,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "proxy": "http://eblog-api-mern.herokuapp.com/api/"
+    }
 }
